@@ -114,3 +114,16 @@ body { padding-top: 0; }
 .photos-swiper .swiper-pagination-bullet { background: var(--white); opacity: .6; }
 .photos-swiper .swiper-pagination-bullet-active { background: var(--accent); opacity: 1; }
 @media (max-width: 860px) { .sobre__inner { grid-template-columns: 1fr; } }
+
+/* ===== Task 6: Abordagem ===== */
+.section-head { text-align: center; max-width: 40rem; margin: 0 auto 50px; }
+.section-head .eyebrow { display: block; margin-bottom: 10px; }
+.abordagem { background: var(--cream-light); }
+.abordagem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 64px); align-items: start; }
+.abordagem__lead { font-size: 1.2rem; line-height: 1.7; color: var(--brown); font-family: var(--font-display); }
+.abordagem__pillars { list-style: none; padding: 0; margin: 0; display: grid; gap: 22px; }
+.abordagem__pillars li { background: var(--card); border-radius: var(--radius); padding: 24px 26px; border: 1px solid rgba(125,107,93,.12); }
+.abordagem__pillars .star { font-size: 1.1rem; }
+.abordagem__pillars h3 { font-size: 1.35rem; margin: 6px 0 4px; }
+.abordagem__pillars p { color: var(--taupe); font-size: .98rem; }
+@media (max-width: 860px) { .abordagem__grid { grid-template-columns: 1fr; } }
