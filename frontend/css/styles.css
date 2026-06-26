@@ -127,3 +127,10 @@ body { padding-top: 0; }
 .abordagem__pillars h3 { font-size: 1.35rem; margin: 6px 0 4px; }
 .abordagem__pillars p { color: var(--taupe); font-size: .98rem; }
 @media (max-width: 860px) { .abordagem__grid { grid-template-columns: 1fr; } }
+
+/* ===== Task 7: Público-Alvo ===== */
+.publico__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
+.publico__card { background: var(--card); border-radius: var(--radius); padding: clamp(28px, 4vw, 46px); border: 1px solid rgba(125,107,93,.12); box-shadow: var(--shadow); }
+.publico__card h3 { font-size: 1.9rem; margin-bottom: 10px; }
+.publico__card p { color: var(--taupe); }
+@media (max-width: 700px) { .publico__grid { grid-template-columns: 1fr; } }
