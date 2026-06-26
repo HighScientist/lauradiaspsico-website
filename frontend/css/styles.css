@@ -159,3 +159,12 @@ body { padding-top: 0; }
 .fcard p { color: var(--taupe); font-size: .95rem; }
 @media (max-width: 920px) { .funciona__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 560px) { .funciona__grid { grid-template-columns: 1fr; } }
+
+/* ===== Task 10: Instagram ===== */
+.posts-swiper { padding-bottom: 8px; }
+.post-slide { width: 280px; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
+.post-slide img { width: 100%; aspect-ratio: 4/5; object-fit: cover; transition: transform .5s var(--ease); }
+.post-slide:hover img { transform: scale(1.05); }
+.posts-swiper .swiper-button-prev, .posts-swiper .swiper-button-next { color: var(--brown); }
+.posts-swiper .swiper-button-prev::after, .posts-swiper .swiper-button-next::after { font-size: 22px; }
+.insta__cta { display: flex; flex-wrap: wrap; gap: 14px; justify-content: center; margin-top: 40px; }
