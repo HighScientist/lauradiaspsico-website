@@ -189,3 +189,10 @@ body { padding-top: 0; }
 .wa-float:hover { transform: scale(1.08); }
 @media (max-width: 640px) { .footer__inner { flex-direction: column; text-align: center; justify-content: center; } }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ===== Task 12: Scroll reveal ===== */
+[data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+[data-reveal].is-visible { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  [data-reveal] { opacity: 1 !important; transform: none !important; transition: none !important; }
+}

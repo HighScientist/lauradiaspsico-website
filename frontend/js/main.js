@@ -18,3 +18,20 @@ navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
   nav.classList.remove('menu-open');
   navToggle.setAttribute('aria-expanded', 'false');
 }));
+
+// ===== Scroll reveal =====
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const revealEls = document.querySelectorAll('[data-reveal]');
+if (reduceMotion || !('IntersectionObserver' in window)) {
+  revealEls.forEach(el => el.classList.add('is-visible'));
+} else {
+  const io = new IntersectionObserver((entries, obs) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('is-visible'), (i % 4) * 80);
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => io.observe(el));
+}
