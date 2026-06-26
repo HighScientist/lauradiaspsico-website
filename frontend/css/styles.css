@@ -149,3 +149,13 @@ body { padding-top: 0; }
 .neuro__tags li { border: 1px solid rgba(245,239,232,.35); border-radius: 999px; padding: 10px 20px; font-size: .9rem; }
 @media (max-width: 920px) { .demandas__grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 760px) { .demandas__grid { grid-template-columns: 1fr; } .neuro { grid-template-columns: 1fr; } }
+
+/* ===== Task 9: Como funciona ===== */
+.funciona { background: var(--cream-light); }
+.funciona__grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.fcard { background: var(--card); border-radius: var(--radius); padding: 32px 26px; border: 1px solid rgba(125,107,93,.12); }
+.fcard__num { font-family: var(--font-display); font-size: 2.2rem; color: var(--accent); display: block; margin-bottom: 8px; }
+.fcard h3 { font-size: 1.3rem; margin-bottom: 6px; }
+.fcard p { color: var(--taupe); font-size: .95rem; }
+@media (max-width: 920px) { .funciona__grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 560px) { .funciona__grid { grid-template-columns: 1fr; } }
