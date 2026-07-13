@@ -39,7 +39,10 @@
 <body>
   <header class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#hero" class="nav__brand">Laura Dias <span class="nav__brand-sub">psicóloga</span></a>
+      <a href="#hero" class="nav__brand" aria-label="Psicóloga Laura de Oliveira Dias — CRP 04/73471">
+        <span class="nav__brand-pre">Psicóloga · CRP 04/73471</span>
+        <span class="nav__brand-name">Laura de Oliveira Dias</span>
+      </a>
       <button class="nav__toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
@@ -68,7 +71,7 @@
         <div class="hero__media" data-reveal>
           <picture>
             <source srcset="assets/images/hero/hero.webp" type="image/webp" />
-            <img src="assets/images/hero/hero.jpg" alt="Laura Dias, psicóloga" width="520" height="640" loading="eager" />
+            <img src="assets/images/hero/hero.jpg" alt="Laura Dias, psicóloga" width="520" height="640" loading="eager" fetchpriority="high" />
           </picture>
           <span class="hero__badge"><span class="star">✦</span> Atendimento<br />100% online</span>
         </div>
@@ -80,10 +83,10 @@
           <p class="eyebrow"><span class="star">✦</span> Quem sou eu?</p>
           <h2 class="section-title">Laura de Oliveira Dias</h2>
           <p class="sobre__lead">Sou psicóloga formada pela Universidade Federal do Triângulo Mineiro (UFTM). Mineira, morando em São Paulo. Atuo na clínica e no contexto hospitalar, com formação em Neuropsicologia e Psico-oncologia.</p>
-          <p>Acredito que pedir ajuda não te torna fraco — te torna humano. Meu trabalho é oferecer um espaço de escuta acolhedor, onde você possa se reconhecer, entender suas emoções e encontrar caminhos mais leves.</p>
+          <p class="muted">Acredito que pedir ajuda não te torna fraco — te torna humano. Meu trabalho é oferecer um espaço de escuta acolhedor, onde você possa se reconhecer, entender suas emoções e encontrar caminhos mais leves.</p>
           <ul class="sobre__tags">
             <li>Psicóloga pela UFTM</li>
-            <li>Psicóloga clínica e hospitalar</li>
+            <li>Clínica e hospitalar</li>
             <li>Neuropsicóloga</li>
             <li>Psico-oncologia</li>
             <li>Abordagem Cognitivo-Comportamental</li>
@@ -92,16 +95,11 @@
           <!-- TODO (preencher com a Laura): pós-graduações, cursos e experiências hospitalares específicas. -->
         </div>
         <div class="sobre__media" data-reveal>
-          <div class="swiper photos-swiper">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide"><picture><source srcset="assets/images/photos/photo_1.webp" type="image/webp"><img src="assets/images/photos/photo_1.jpg" alt="Laura Dias, psicóloga" loading="lazy"></picture></div>
-              <div class="swiper-slide"><picture><source srcset="assets/images/photos/photo_02.webp" type="image/webp"><img src="assets/images/photos/photo_02.jpg" alt="Laura Dias, psicóloga" loading="lazy"></picture></div>
-              <div class="swiper-slide"><picture><source srcset="assets/images/photos/photo_03.webp" type="image/webp"><img src="assets/images/photos/photo_03.jpg" alt="Laura Dias, psicóloga" loading="lazy"></picture></div>
-              <div class="swiper-slide"><picture><source srcset="assets/images/photos/photo_04.webp" type="image/webp"><img src="assets/images/photos/photo_04.jpg" alt="Laura Dias, psicóloga" loading="lazy"></picture></div>
-              <div class="swiper-slide"><picture><source srcset="assets/images/photos/photo_05.webp" type="image/webp"><img src="assets/images/photos/photo_05.jpg" alt="Laura Dias, psicóloga" loading="lazy"></picture></div>
-              <div class="swiper-slide"><picture><source srcset="assets/images/photos/photo_06.webp" type="image/webp"><img src="assets/images/photos/photo_06.jpg" alt="Laura Dias, psicóloga" loading="lazy"></picture></div>
-            </div>
-            <div class="swiper-pagination"></div>
+          <div class="sobre__portrait">
+            <picture>
+              <source srcset="assets/images/photos/photo_08.webp" type="image/webp" />
+              <img src="assets/images/photos/photo_08.jpg" alt="Laura de Oliveira Dias, psicóloga" loading="lazy" />
+            </picture>
           </div>
         </div>
       </div>
@@ -113,7 +111,34 @@
           <h2 class="section-title">Terapia Cognitivo-Comportamental</h2>
         </div>
         <div class="abordagem__grid">
-          <p class="abordagem__lead" data-reveal>A forma como você interpreta o que acontece influencia diretamente como você se sente e age. O que você diz para si mesmo molda sua autoestima e sua maneira de enfrentar a vida. Na TCC, trabalhamos juntos para identificar padrões de pensamento que geram sofrimento e construir estratégias práticas para lidar com eles — com foco no presente e nos seus objetivos.</p>
+          <div class="abordagem__col">
+            <p class="abordagem__lead" data-reveal>A forma como você interpreta o que acontece influencia diretamente como você se sente e age. O que você diz para si mesmo molda sua autoestima e sua maneira de enfrentar a vida. Na TCC, trabalhamos juntos para identificar padrões de pensamento que geram sofrimento e construir estratégias práticas para lidar com eles — com foco no presente e nos seus objetivos.</p>
+            <!-- Esquema do triângulo cognitivo: pensamentos, emoções e comportamentos se influenciam -->
+            <div class="tcc" data-reveal>
+              <p class="tcc__cap">O triângulo cognitivo</p>
+              <p class="tcc__sub">Pensamentos, emoções e ações estão sempre conectados.</p>
+              <svg class="tcc__svg" viewBox="0 0 440 372" role="img" aria-label="Diagrama do triângulo cognitivo: pensamentos, emoções e comportamentos se influenciam mutuamente">
+                <defs>
+                  <marker id="tccArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                    <path d="M0 0 L10 5 L0 10 z" fill="#B89B7A"></path>
+                  </marker>
+                </defs>
+                <path d="M180 118 L112 232" fill="none" stroke="#B89B7A" stroke-width="2" marker-start="url(#tccArrow)" marker-end="url(#tccArrow)"></path>
+                <path d="M260 118 L328 232" fill="none" stroke="#B89B7A" stroke-width="2" marker-start="url(#tccArrow)" marker-end="url(#tccArrow)"></path>
+                <path d="M154 288 L286 288" fill="none" stroke="#B89B7A" stroke-width="2" marker-start="url(#tccArrow)" marker-end="url(#tccArrow)"></path>
+                <text x="220" y="224" text-anchor="middle" font-size="24" fill="rgba(184,155,122,.38)">✦</text>
+                <circle cx="220" cy="66" r="66" fill="#FBF8F4" stroke="#B89B7A" stroke-width="1.5"></circle>
+                <text x="220" y="62" text-anchor="middle" class="tcc__node-label">Pensamentos</text>
+                <text x="220" y="82" text-anchor="middle" class="tcc__node-sub">o que penso</text>
+                <circle cx="88" cy="288" r="66" fill="#FBF8F4" stroke="#B89B7A" stroke-width="1.5"></circle>
+                <text x="88" y="284" text-anchor="middle" class="tcc__node-label">Emoções</text>
+                <text x="88" y="304" text-anchor="middle" class="tcc__node-sub">o que sinto</text>
+                <circle cx="352" cy="288" r="66" fill="#FBF8F4" stroke="#B89B7A" stroke-width="1.5"></circle>
+                <text x="352" y="284" text-anchor="middle" class="tcc__node-label">Comportamento</text>
+                <text x="352" y="304" text-anchor="middle" class="tcc__node-sub">o que faço</text>
+              </svg>
+            </div>
+          </div>
           <ul class="abordagem__pillars">
             <li data-reveal><span class="star">✦</span><h3>Baseada em evidências</h3><p>Uma das abordagens com maior comprovação científica de eficácia.</p></li>
             <li data-reveal><span class="star">✦</span><h3>Foco no presente</h3><p>Direcionada a soluções e aos desafios que você vive hoje.</p></li>
@@ -123,22 +148,35 @@
         </div>
       </div>
     </section>
+    <!-- Faixa com frase de impacto -->
+    <section class="section quote-band">
+      <div class="container quote-band__inner" data-reveal>
+        <div class="divider"><span class="star">✦</span></div>
+        <blockquote>Falar não é fraqueza, é libertação.<span class="script">Você merece ser ouvido.</span></blockquote>
+      </div>
+    </section>
     <section class="section publico" id="publico">
       <div class="container">
         <div class="section-head" data-reveal>
           <p class="eyebrow"><span class="star">✦</span> Para quem é</p>
-          <h2 class="section-title">Atendimento a Adultos e Idosos</h2>
+          <h2 class="section-title">Um espaço de cuidado para você</h2>
         </div>
-        <div class="publico__grid">
-          <article class="publico__card" data-reveal>
-            <h3>Adultos</h3>
-            <p>Para quem enfrenta ansiedade, sobrecarga, dores emocionais ou momentos de transição — e quer construir uma relação mais saudável consigo mesmo.</p>
-          </article>
-          <article class="publico__card" data-reveal>
-            <h3>Idosos</h3>
-            <p>Acolhimento para lidar com perdas, mudanças, solidão, adoecimento e os desafios dessa fase da vida — com respeito, escuta e cuidado.</p>
-          </article>
-        </div>
+        <article class="publico__card" data-reveal>
+          <div class="publico__ages">
+            <span class="publico__age"><span class="star">✦</span> Adultos</span>
+            <span class="publico__age"><span class="star">✦</span> Idosos</span>
+          </div>
+          <p>Atendo dois públicos principais — <strong>adultos</strong> e <strong>idosos</strong> — com o mesmo cuidado e atenção. A psicoterapia é para você que sente que algo precisa de atenção, que carrega angústias, dúvidas ou dores que pesam no dia a dia e deseja se compreender melhor, com acolhimento e sem julgamentos. Um espaço seguro para olhar para dentro e construir caminhos mais leves.</p>
+          <div class="publico__topics">
+            <span class="publico__topic"><span class="star">✦</span> Ansiedade e estresse</span>
+            <span class="publico__topic"><span class="star">✦</span> Autoconhecimento</span>
+            <span class="publico__topic"><span class="star">✦</span> Autoestima</span>
+            <span class="publico__topic"><span class="star">✦</span> Relacionamentos</span>
+            <span class="publico__topic"><span class="star">✦</span> Luto e perdas</span>
+            <span class="publico__topic"><span class="star">✦</span> Momentos de transição</span>
+            <span class="publico__topic"><span class="star">✦</span> Adoecimento</span>
+          </div>
+        </article>
       </div>
     </section>
     <section class="section demandas" id="demandas">
@@ -184,6 +222,15 @@
         </div>
       </div>
     </section>
+    <!-- Faixa de CTA intermediária -->
+    <section class="section cta-band">
+      <div class="container" data-reveal>
+        <p class="eyebrow"><span class="star">✦</span> Dê o primeiro passo</p>
+        <h2>Reserve um momento para cuidar de você</h2>
+        <span class="cta-band__script">Estou aqui para te ouvir</span>
+        <a href="https://wa.me/5517981239566?text=Ol%C3%A1%2C%20Laura!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." class="btn btn-primary" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+      </div>
+    </section>
     <section class="section insta" id="instagram">
       <div class="container">
         <div class="section-head" data-reveal>
@@ -211,9 +258,10 @@
     </section>
     <section class="section contato" id="contato">
       <div class="container contato__inner" data-reveal>
+        <div class="divider" style="margin-bottom:26px;"><span class="star">✦</span></div>
         <p class="eyebrow"><span class="star">✦</span> Agenda aberta</p>
         <h2 class="contato__title">Vamos conversar?</h2>
-        <p class="contato__lead">Dar o primeiro passo já é um ato de cuidado. Reserve um momento para cuidar de você.</p>
+        <p class="contato__lead">Dar o primeiro passo já é um ato de cuidado. <span class="script">Reserve um momento para cuidar de você.</span></p>
         <a href="https://wa.me/5517981239566?text=Ol%C3%A1%2C%20Laura!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." class="btn btn-primary contato__btn" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
         <p class="contato__alt">ou pelo Instagram <a href="https://www.instagram.com/lauradiaspsico" target="_blank" rel="noopener">@lauradiaspsico</a></p>
       </div>
@@ -232,7 +280,7 @@
         <a href="https://wa.me/5517981239566" target="_blank" rel="noopener">WhatsApp</a>
       </div>
     </div>
-    <p class="footer__copy">© 2026 Laura de Oliveira Dias · Todos os direitos reservados</p>
+    <p class="footer__copy">© 2026 Laura de Oliveira Dias · CRP 04/73471 · Todos os direitos reservados</p>
   </footer>
 
   <a class="wa-float" href="https://wa.me/5517981239566?text=Ol%C3%A1%2C%20Laura!%20Vim%20pelo%20seu%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="Agendar pelo WhatsApp">

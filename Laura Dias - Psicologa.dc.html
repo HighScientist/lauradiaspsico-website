@@ -6,6 +6,14 @@
 <script src="./support.js"></script>
 </head>
 <body>
+<template id="__bundler_thumbnail" data-bg-color="#EFE6DD">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#EFE6DD"/>
+    <path d="M600 250 L636 364 L750 400 L636 436 L600 550 L564 436 L450 400 L564 364 Z" fill="#B89B7A"/>
+    <text x="600" y="640" font-family="Georgia, serif" font-size="60" fill="#4A3F35" text-anchor="middle">Laura de Oliveira Dias</text>
+    <text x="600" y="695" font-family="Arial, sans-serif" font-size="26" letter-spacing="6" fill="#B89B7A" text-anchor="middle">PSICÓLOGA · CRP 04/73471</text>
+  </svg>
+</template>
 <x-dc>
 <helmet>
   <!-- ===================== SEO / META ===================== -->
@@ -145,7 +153,11 @@
     /* min-width:0 evita que o carrossel estoure a coluna do grid (largura intrínseca dos slides) */
     .sobre__media { min-width: 0; }
     .photos-swiper { min-width: 0; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); }
-    .photos-swiper .swiper-slide img { width: 100%; aspect-ratio: 4/5; object-fit: cover; }
+    /* Foto estática — Quem sou eu */
+    .sobre__portrait { min-width: 0; position: relative; }
+    .sobre__portrait img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 25%; border-radius: var(--radius); box-shadow: var(--shadow); }
+    .sobre__portrait::before { content: ""; position: absolute; inset: -14px -14px auto auto; width: 100%; height: 100%; border: 1px solid rgba(184,155,122,.5); border-radius: var(--radius); z-index: -1; }
+    .photos-swiper .swiper-slide img { width: 100%; aspect-ratio: 4/5; object-fit: cover; object-position: 50% 14%; }
     .photos-swiper .swiper-pagination-bullet { background: #fff; opacity: .55; }
     .photos-swiper .swiper-pagination-bullet-active { background: var(--accent); opacity: 1; }
     @media (max-width: 860px) { .sobre__inner { grid-template-columns: 1fr; } }
@@ -153,7 +165,15 @@
     /* Abordagem (TCC) */
     .abordagem { background: var(--cream-light); }
     .abordagem__grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(30px, 5vw, 64px); align-items: start; }
-    .abordagem__lead { font-size: 1.22rem; line-height: 1.7; color: var(--brown); font-family: var(--font-display); }
+    .abordagem__col { display: flex; flex-direction: column; gap: 34px; }
+    .abordagem__lead { font-size: 1.22rem; line-height: 1.7; color: var(--brown); font-family: var(--font-display); margin: 0; }
+    /* Esquema do triângulo cognitivo (TCC) */
+    .tcc { background: var(--card); border: 1px solid rgba(125,107,93,.12); border-radius: var(--radius); padding: 30px 28px 26px; box-shadow: var(--shadow-sm); }
+    .tcc__cap { font-family: var(--font-body); font-size: .74rem; font-weight: 500; letter-spacing: .2em; text-transform: uppercase; color: var(--accent); text-align: center; margin: 0 0 6px; }
+    .tcc__sub { text-align: center; color: var(--taupe); font-size: .92rem; margin: 0 0 18px; }
+    .tcc__svg { width: 100%; height: auto; display: block; }
+    .tcc__node-label { font-family: var(--font-display); font-size: 17.5px; fill: var(--ink); font-weight: 600; }
+    .tcc__node-sub { font-family: var(--font-body); font-size: 11px; fill: var(--taupe); letter-spacing: .03em; }
     .abordagem__pillars { list-style: none; padding: 0; margin: 0; display: grid; gap: 20px; }
     .abordagem__pillars li { background: var(--card); border-radius: var(--radius); padding: 24px 26px; border: 1px solid rgba(125,107,93,.12); transition: transform .4s var(--ease), box-shadow .4s var(--ease); }
     .abordagem__pillars li:hover { transform: translateY(-4px); box-shadow: var(--shadow-sm); }
@@ -162,12 +182,17 @@
     .abordagem__pillars p { color: var(--taupe); font-size: .98rem; }
     @media (max-width: 860px) { .abordagem__grid { grid-template-columns: 1fr; } }
 
-    /* Para quem é */
-    .publico__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 26px; }
-    .publico__card { background: var(--card); border-radius: var(--radius); padding: clamp(28px, 4vw, 46px); border: 1px solid rgba(125,107,93,.12); box-shadow: var(--shadow-sm); }
-    .publico__card h3 { font-size: 1.9rem; margin-bottom: 10px; display: flex; align-items: center; gap: 10px; }
-    .publico__card p { color: var(--taupe); margin: 0; }
-    @media (max-width: 700px) { .publico__grid { grid-template-columns: 1fr; } }
+    /* Para quem é (bloco unificado) */
+    .publico__card { max-width: 780px; margin-inline: auto; text-align: center; background: var(--card); border-radius: var(--radius); padding: clamp(34px, 5vw, 56px); border: 1px solid rgba(125,107,93,.12); box-shadow: var(--shadow-sm); }
+    .publico__card p { color: var(--taupe); font-size: 1.12rem; margin: 0 auto 26px; max-width: 44rem; }
+    .publico__card p:last-child { margin-bottom: 0; }
+    .publico__card p strong { color: var(--brown); font-weight: 600; }
+    .publico__ages { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin: 0 0 24px; }
+    .publico__age { display: inline-flex; align-items: center; gap: 9px; font-family: var(--font-display); font-size: 1.5rem; color: var(--ink); background: var(--cream-light); border: 1px solid rgba(125,107,93,.16); border-radius: 999px; padding: 12px 26px; }
+    .publico__age .star { font-size: 1.05rem; }
+    .publico__topics { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 4px; }
+    .publico__topic { display: inline-flex; align-items: center; gap: 8px; font-size: .98rem; color: var(--brown); background: var(--cream-light); border: 1px solid rgba(125,107,93,.16); border-radius: 999px; padding: 10px 20px; }
+    .publico__topic .star { color: var(--accent); font-size: .85rem; }
 
     /* Demandas + Neuropsicologia */
     .demandas__grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
@@ -195,7 +220,7 @@
     @media (max-width: 920px) { .funciona__grid { grid-template-columns: repeat(2, 1fr); } }
     @media (max-width: 560px) { .funciona__grid { grid-template-columns: 1fr; } }
 
-    /* Instagram */
+    /* Instagram (carrossel das artes dos posts) */
     .posts-swiper { padding-bottom: 8px; }
     .posts-swiper .swiper-slide { width: 280px; }
     .post-slide { display: block; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow); background: var(--card); }
@@ -290,7 +315,7 @@
       </div>
       <div class="hero__media" data-reveal>
         <!-- Foto real da Laura (hero) -->
-        <img src="assets/photos/photo_1.jpeg" alt="Laura de Oliveira Dias, psicóloga, sorrindo" width="430" height="516" fetchpriority="high" />
+        <img src="assets/photos/photo_02_crop.jpeg" alt="Laura de Oliveira Dias, psicóloga, sorrindo" width="430" height="516" fetchpriority="high" />
         <span class="hero__badge"><span class="star">✦</span> Atendimento<br />100% online</span>
       </div>
     </div>
@@ -314,13 +339,9 @@
         </ul>
       </div>
       <div class="sobre__media" data-reveal>
-        <!-- Carrossel de fotos profissionais reais -->
-        <div class="swiper photos-swiper">
-          <div class="swiper-wrapper">
-            <div class="swiper-slide"><img src="assets/photos/photo_05.jpeg" alt="Laura de Oliveira Dias, psicóloga" loading="lazy" /></div>
-            <div class="swiper-slide"><img src="assets/photos/photo_07.jpeg" alt="Laura de Oliveira Dias em jaleco, atuação clínica e hospitalar" loading="lazy" /></div>
-          </div>
-          <div class="swiper-pagination"></div>
+        <!-- Foto estática (Quem sou eu) -->
+        <div class="sobre__portrait">
+          <img src="assets/photos/photo_08_edit.jpeg" alt="Laura de Oliveira Dias, psicóloga" loading="lazy" />
         </div>
       </div>
     </div>
@@ -334,7 +355,39 @@
         <h2 class="section-title">Terapia Cognitivo-Comportamental</h2>
       </div>
       <div class="abordagem__grid">
-        <p class="abordagem__lead" data-reveal>A forma como você interpreta o que acontece influencia diretamente como você se sente e age. O que você diz para si mesmo molda sua autoestima e sua maneira de enfrentar a vida. Na TCC, trabalhamos juntos para identificar padrões de pensamento que geram sofrimento e construir estratégias práticas para lidar com eles — com foco no presente e nos seus objetivos.</p>
+        <div class="abordagem__col">
+          <p class="abordagem__lead" data-reveal>A forma como você interpreta o que acontece influencia diretamente como você se sente e age. O que você diz para si mesmo molda sua autoestima e sua maneira de enfrentar a vida. Na TCC, trabalhamos juntos para identificar padrões de pensamento que geram sofrimento e construir estratégias práticas para lidar com eles — com foco no presente e nos seus objetivos.</p>
+          <!-- Esquema do triângulo cognitivo: pensamentos, emoções e comportamentos se influenciam -->
+          <div class="tcc" data-reveal>
+            <p class="tcc__cap">O triângulo cognitivo</p>
+            <p class="tcc__sub">Pensamentos, emoções e ações estão sempre conectados.</p>
+            <svg class="tcc__svg" viewBox="0 0 440 372" role="img" aria-label="Diagrama do triângulo cognitivo: pensamentos, emoções e comportamentos se influenciam mutuamente">
+              <defs>
+                <marker id="tccArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse">
+                  <path d="M0 0 L10 5 L0 10 z" fill="#B89B7A"></path>
+                </marker>
+              </defs>
+              <!-- Conexões entre os nós (setas duplas) -->
+              <path d="M180 118 L112 232" fill="none" stroke="#B89B7A" stroke-width="2" marker-start="url(#tccArrow)" marker-end="url(#tccArrow)"></path>
+              <path d="M260 118 L328 232" fill="none" stroke="#B89B7A" stroke-width="2" marker-start="url(#tccArrow)" marker-end="url(#tccArrow)"></path>
+              <path d="M154 288 L286 288" fill="none" stroke="#B89B7A" stroke-width="2" marker-start="url(#tccArrow)" marker-end="url(#tccArrow)"></path>
+              <!-- Estrela central -->
+              <text x="220" y="224" text-anchor="middle" font-size="24" fill="rgba(184,155,122,.38)">✦</text>
+              <!-- Nó: Pensamentos (topo) -->
+              <circle cx="220" cy="66" r="66" fill="#FBF8F4" stroke="#B89B7A" stroke-width="1.5"></circle>
+              <text x="220" y="62" text-anchor="middle" class="tcc__node-label">Pensamentos</text>
+              <text x="220" y="82" text-anchor="middle" class="tcc__node-sub">o que penso</text>
+              <!-- Nó: Emoções (inferior esquerda) -->
+              <circle cx="88" cy="288" r="66" fill="#FBF8F4" stroke="#B89B7A" stroke-width="1.5"></circle>
+              <text x="88" y="284" text-anchor="middle" class="tcc__node-label">Emoções</text>
+              <text x="88" y="304" text-anchor="middle" class="tcc__node-sub">o que sinto</text>
+              <!-- Nó: Comportamento (inferior direita) -->
+              <circle cx="352" cy="288" r="66" fill="#FBF8F4" stroke="#B89B7A" stroke-width="1.5"></circle>
+              <text x="352" y="284" text-anchor="middle" class="tcc__node-label">Comportamento</text>
+              <text x="352" y="304" text-anchor="middle" class="tcc__node-sub">o que faço</text>
+            </svg>
+          </div>
+        </div>
         <ul class="abordagem__pillars">
           <li data-reveal><span class="star">✦</span><h3>Baseada em evidências</h3><p>Uma das abordagens com maior comprovação científica de eficácia.</p></li>
           <li data-reveal><span class="star">✦</span><h3>Foco no presente</h3><p>Direcionada a soluções e aos desafios que você vive hoje.</p></li>
@@ -358,18 +411,24 @@
     <div class="container">
       <div class="section-head" data-reveal>
         <p class="eyebrow"><span class="star">✦</span> Para quem é</p>
-        <h2 class="section-title">Atendimento a adultos e idosos</h2>
+        <h2 class="section-title">Um espaço de cuidado para você</h2>
       </div>
-      <div class="publico__grid">
-        <article class="publico__card" data-reveal>
-          <h3><span class="star">✦</span> Adultos</h3>
-          <p>Para quem enfrenta ansiedade, sobrecarga, dores emocionais ou momentos de transição — e quer construir uma relação mais saudável consigo mesmo.</p>
-        </article>
-        <article class="publico__card" data-reveal>
-          <h3><span class="star">✦</span> Idosos</h3>
-          <p>Acolhimento para lidar com perdas, mudanças, solidão, adoecimento e os desafios dessa fase da vida — com respeito, escuta e cuidado.</p>
-        </article>
-      </div>
+      <article class="publico__card" data-reveal>
+        <div class="publico__ages">
+          <span class="publico__age"><span class="star">✦</span> Adultos</span>
+          <span class="publico__age"><span class="star">✦</span> Idosos</span>
+        </div>
+        <p>Atendo dois públicos principais — <strong>adultos</strong> e <strong>idosos</strong> — com o mesmo cuidado e atenção. A psicoterapia é para você que sente que algo precisa de atenção, que carrega angústias, dúvidas ou dores que pesam no dia a dia e deseja se compreender melhor, com acolhimento e sem julgamentos. Um espaço seguro para olhar para dentro e construir caminhos mais leves.</p>
+        <div class="publico__topics">
+          <span class="publico__topic"><span class="star">✦</span> Ansiedade e estresse</span>
+          <span class="publico__topic"><span class="star">✦</span> Autoconhecimento</span>
+          <span class="publico__topic"><span class="star">✦</span> Autoestima</span>
+          <span class="publico__topic"><span class="star">✦</span> Relacionamentos</span>
+          <span class="publico__topic"><span class="star">✦</span> Luto e perdas</span>
+          <span class="publico__topic"><span class="star">✦</span> Momentos de transição</span>
+          <span class="publico__topic"><span class="star">✦</span> Adoecimento</span>
+        </div>
+      </article>
     </div>
   </section>
 
@@ -438,7 +497,7 @@
         <p class="eyebrow"><span class="star">✦</span> @lauradiaspsico</p>
         <h2 class="section-title">Acompanhe no Instagram</h2>
       </div>
-      <!-- Carrossel com as artes reais dos posts -->
+      <!-- Carrossel com as artes reais dos posts do Instagram -->
       <div class="swiper posts-swiper" data-reveal>
         <div class="swiper-wrapper">
           <a class="swiper-slide post-slide" href="https://www.instagram.com/lauradiaspsico/" target="_blank" rel="noopener"><img src="assets/posts/post_01.jpeg" alt="Post de @lauradiaspsico" loading="lazy" /></a>
@@ -453,7 +512,7 @@
         <div class="swiper-button-next"></div>
       </div>
       <div class="insta__cta" data-reveal>
-        <a href="https://www.instagram.com/lauradiaspsico" class="btn btn-ghost" target="_blank" rel="noopener">Seguir @lauradiaspsico</a>
+        <a href="https://www.instagram.com/lauradiaspsico/" class="btn btn-primary" target="_blank" rel="noopener">Acompanhar no Instagram</a>
         <a href="https://lauradiaspsico.keepo.bio" class="btn btn-ghost" target="_blank" rel="noopener">Todos os links</a>
       </div>
     </div>
